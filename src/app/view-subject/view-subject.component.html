@@ -1,0 +1,26 @@
+<table>
+  <tr>
+    <th>#      </th>
+    <th>Subject</th>
+  </tr>
+  <tr *ngFor = "let card of getCards(); let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{card.subject}}</td>
+        <button (click) = "OpenSubject(i)">Open subject</button>
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>#     </th>
+    <th>Question</th>
+    <th>Answer</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let card of tempCard; let i = index">
+    <td>{{i + 1}}</td>
+    <td>{{card.question}}</td>
+    <td *ngIf="isVisable(i)"> {{card.answer}} </td>
+    <button (click) = "displayAnswer(i)"> Display Answer</button>
+    <button (click) = "displayQuestion(i)">Hide Answer</button>
+  </tr>
+</table>
