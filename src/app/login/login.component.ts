@@ -11,9 +11,13 @@ import { Account} from '../Account';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
-
+  name:string;
+  password:string;
+  constructor(private accService: AccountService) { }
+  
   ngOnInit() {
   }
 
+
+  
 }

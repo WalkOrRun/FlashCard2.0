@@ -11,4 +11,7 @@ export class AccountService {
   createAccount(newAcc: Account){
     return this.http.post('https://flashcarddata-ad85d.firebaseio.com/'+'account.json',newAcc);
   }
+  getAccount(){
+    return this.http.get<Account[]>('https://flashcarddata-ad85d.firebaseio.com/'+ 'account.json')
+  }
 }
