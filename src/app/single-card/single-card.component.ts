@@ -25,7 +25,7 @@ export class SingleCardComponent implements OnInit {
     accountID : 1
   };
   subjectString : string;
-  questionCard : Card;
+  questionCard : Card[] = [];
   max : number;
   storeIndex : number = 0;
   
@@ -43,6 +43,7 @@ export class SingleCardComponent implements OnInit {
   OpenSubject(index : number) {
     this.cardSet = this.cardService.getCardSet(index);
     this.tempCard = this.cardSet.Card;
+    this.questionCard.push(this.tempCard[0]);
   }
   isVisable(index : number) {
     if(this.tempCard.length !== 0) {
@@ -72,11 +73,11 @@ export class SingleCardComponent implements OnInit {
   nextQuestion(index : number) {
     if(this.tempCard.length != 0) {
       if (index !== this.tempCard.length){
-        this.questionCard = this.tempCard[index + 1]
+        this.questionCard[0] = this.tempCard[index + 1]
         this.storeIndex = index + 1;
       }
       else if (index >= this.tempCard.length){
-        this.questionCard = this.tempCard[0];
+        this.questionCard[0] = this.tempCard[0];
         this.storeIndex = 0;
       }
       else {
@@ -90,12 +91,12 @@ export class SingleCardComponent implements OnInit {
   previousQuestion(index : number) {
     if(this.tempCard.length != 0) {
       if(index !== 0) {
-        this.questionCard = this.tempCard[index -1];
+        this.questionCard[0] = this.tempCard[index -1];
         this.storeIndex = index -1;
       }
       else if (index === 0) {
         this.max = this.tempCard.length
-        this.questionCard = this.tempCard[this.max - 1];
+        this.questionCard[0] = this.tempCard[this.max - 1];
         this.storeIndex = this.max - 1;
       }
     }
@@ -105,12 +106,15 @@ export class SingleCardComponent implements OnInit {
   }
   selectQuestion(index : number) {
     if(index <= this.tempCard.length -1) {
-      this.questionCard = this.tempCard[index];
+      this.questionCard[0] = this.tempCard[index];
       this.storeIndex = index;
     }
   }
   getQuestionCard() {
-    return this.questionCard;
+    return this.questionCard[0].question;
+  }
+  getAnswerCard() {
+    return this.questionCard[0].answer;
   }
   getIndex() {
     return this.storeIndex;

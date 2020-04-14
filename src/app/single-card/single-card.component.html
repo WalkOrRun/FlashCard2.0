@@ -15,14 +15,16 @@
 <div class = "card">
 <table>
   <tr>
+    <th>#</th>
     <th>Question</th>
     <th>Answer</th>
   </tr>
-  <tr>
-    <td *ngIf = "hasCards()">{{}}</td>
-    <td *ngIf="isVisable(getIndex())"> {{questionCard.answer}} </td>
-    <button *ngIf = "notVisable(getIndex())" (click) = "displayAnswer(i)"> Display Answer</button>
-    <button *ngIf="isVisable(getIndex())" (click) = "displayQuestion(i)">Hide Answer</button>
+  <tr *ngFor = "let cards of questionCard; let i = index">
+    <td>{{i + 1}}</td>
+    <td *ngIf = "hasCards()">{{cards.question}}</td>
+    <td *ngIf="isVisable(getIndex())">{{cards.answer}}</td>
+    <button *ngIf = "notVisable(getIndex())" (click) = "displayAnswer(getIndex())"> Display Answer</button>
+    <button *ngIf="isVisable(getIndex())" (click) = "displayQuestion(getIndex())">Hide Answer</button>
   </tr>
   <div class = "spacing">
     <button (click) = "previousQuestion(getIndex())">Previous question</button>
