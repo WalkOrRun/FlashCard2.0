@@ -38,9 +38,6 @@ button:hover {
 table {
     color: black;
     background-color: whitesmoke;
-    /* border: black;
-    border-style: solid;
-    border-radius: 1em; */
     
 }
 h2 {
@@ -54,4 +51,13 @@ td {
    border-color: black;
    padding-right: 2rem;
    padding-left: 2rem;
+}
+.card {
+  border-radius: 1em;
+   border-style: solid;
+   border-color: black;
+   padding-right: .5rem;
+   padding-left: .5rem;
+   
+   
 }
