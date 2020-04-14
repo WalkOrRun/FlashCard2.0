@@ -24,3 +24,10 @@
     <button (click) = "displayQuestion(i)">Hide Answer</button>
   </tr>
 </table>
+<table>
+  <tr>
+    <th>Search</th>
+  </tr>
+  <tr *ngFor="let card of getCards(); let i = index"></tr>
+  <td></td>
+</table>

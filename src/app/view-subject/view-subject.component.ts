@@ -20,6 +20,8 @@ export class ViewSubjectComponent implements OnInit {
     setID : 1,
     accountID : 1
   };
+  searchBoolean : boolean = false;
+  subjectString : string;
   getCards() {
     return this.cardService.getMyCreatedSets();
   }
@@ -37,6 +39,12 @@ export class ViewSubjectComponent implements OnInit {
   }
   isVisable(index : number) {
     return this.tempCard[index].marked;
+  }
+  search(subject : string) {
+      this.subjectString = subject;
+  }
+  getSubject() {
+    return this.subjectString;
   }
   ngOnInit() {
   }
