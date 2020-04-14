@@ -43,6 +43,11 @@ table {
     border-radius: 1em;
     
 }
+td {
+   border-radius: 1em;
+   border-style: solid;
+   border-color: turquoise;
+}
 h2 {
     color: red;
     border-bottom: solid;
