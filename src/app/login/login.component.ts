@@ -29,10 +29,11 @@ export class LoginComponent implements OnInit {
     for(let i =0; i<this.accounts.length;i++){
       if((this.name==this.accounts[i].name)&&(this.password==this.accounts[i].password)){
         this.message='login successed, hello'+this.name;
+        return;
       }
-      else{
+      
         this.message='wrong username or password';
-      }
+      
     }
   }
 
