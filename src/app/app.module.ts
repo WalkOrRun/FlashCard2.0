@@ -12,9 +12,9 @@ import { AccountService } from './account.service';
 import { ViewSubjectComponent } from './view-subject/view-subject.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import {SingleCardComponent} from './single-card/single-card.component';
-
+import {HttpClientModule} from '@angular/common/http';
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, ReactiveFormsModule ],
+  imports:      [ BrowserModule, FormsModule, ReactiveFormsModule,HttpClientModule ],
   declarations: [ AppComponent, HelloComponent, LoginComponent, CreateSetComponent, ViewSubjectComponent, CreateAccountComponent, SingleCardComponent ],
   bootstrap:    [ AppComponent ],
   providers: [SetService, CardService, AccountService]
