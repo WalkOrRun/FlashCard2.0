@@ -59,3 +59,7 @@ h2 {
    padding-right: .5rem;
    padding-left: .5rem;
 } 
+.spacing {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}

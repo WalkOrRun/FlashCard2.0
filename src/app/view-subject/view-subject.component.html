@@ -9,6 +9,9 @@
         <button (click) = "OpenSubject(i)">Open subject</button>
   </tr>
 </table>
+<div class = "spacing">
+
+</div>
 <div class = "card">
 <table>
   <tr>
@@ -19,7 +22,7 @@
   </tr>
   <tr *ngFor="let card of tempCard; let i = index">
     <td>{{i + 1}}</td>
-    <td>{{card.question}}</td>
+    <td class ="spacing">{{card.question}}</td>
     <td *ngIf="isVisable(i)"> {{card.answer}} </td>
     <button *ngIf = "notVisable(i)" (click) = "displayAnswer(i)"> Display Answer</button>
     <button *ngIf="isVisable(i)" (click) = "displayQuestion(i)">Hide Answer</button>
@@ -31,7 +34,7 @@
     Search here:
     <input #store type="text"
     formControlName = "subject" required>
-    <div>
+    <div class = "spacing">
       <button (click) = "search(store.value)">Search</button>
     </div>
   </label>

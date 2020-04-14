@@ -1,0 +1,51 @@
+<table>
+  <tr>
+    <th>#      </th>
+    <th>Created Subject</th>
+  </tr>
+  <tr *ngFor = "let card of getCards(); let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{card.subject}}</td>
+        <button (click) = "OpenSubject(i)">Open subject</button>
+  </tr>
+</table>
+<div class = "spacing">
+
+</div>
+<div class = "card">
+<table>
+  <tr>
+    <th>Question</th>
+    <th>Answer</th>
+  </tr>
+  <tr>
+    <td *ngIf = "hasCards()">{{}}</td>
+    <td *ngIf="isVisable(getIndex())"> {{questionCard.answer}} </td>
+    <button *ngIf = "notVisable(getIndex())" (click) = "displayAnswer(i)"> Display Answer</button>
+    <button *ngIf="isVisable(getIndex())" (click) = "displayQuestion(i)">Hide Answer</button>
+  </tr>
+  <div class = "spacing">
+    <button (click) = "previousQuestion(getIndex())">Previous question</button>
+    <button  (click) = "nextQuestion(getIndex())">Next question</button>
+  </div>
+</table>
+</div> 
+<form [formGroup] = "cardBuilderForm" (ngSubmit) = "onSubmit()">
+  <label>
+    Search here:
+    <input #store type="text"
+    formControlName = "subject" required>
+    <div class = "spacing">
+      <button (click) = "search(store.value)">Search</button>
+    </div>
+  </label>
+</form>
+<table>
+  <tr>
+    <th>Search Results</th>
+  </tr>
+  <tr *ngFor="let cards of getCards(); let i = index">
+   <td *ngIf="getSearchBoolean(i)">{{cards.subject}}</td>
+  <<button *ngIf="getSearchBoolean(i)" (click) = "OpenSubject(i)">Open Subject</button> 
+  </tr>
+</table> 
