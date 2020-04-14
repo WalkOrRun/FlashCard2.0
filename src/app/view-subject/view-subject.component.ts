@@ -3,6 +3,7 @@ import { Card } from '../Card';
 import { CardSet } from '../Cardset';
 import {CardService} from '../card.service';
 import { FormBuilder } from '@angular/forms';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-view-subject',
@@ -10,7 +11,10 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./view-subject.component.css']
 })
 export class ViewSubjectComponent implements OnInit {
-  constructor(private cardService : CardService) { }
+  constructor(private cardService : CardService, private fb : FormBuilder) { }
+  cardBuilderForm = this.fb.group( {
+    subject : ['']
+  })
   tempCard : Card[] = [];
   cardStore : Card;
   answerVisable : boolean = false;
@@ -43,8 +47,11 @@ export class ViewSubjectComponent implements OnInit {
   search(subject : string) {
       this.subjectString = subject;
   }
-  getSubject() {
-    return this.subjectString;
+  getSearchBoolean(index: number) {
+    return this.subjectString === this.cardService.getCardSet[index].subject;
+  }
+  onSubmit() {
+    console.warn(this.cardBuilderForm.value);
   }
   ngOnInit() {
   }

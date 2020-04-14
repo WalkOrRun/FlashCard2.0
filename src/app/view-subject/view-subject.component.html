@@ -1,7 +1,7 @@
 <table>
   <tr>
     <th>#      </th>
-    <th>Subject</th>
+    <th>Created Subject</th>
   </tr>
   <tr *ngFor = "let card of getCards(); let i = index">
         <td>{{i + 1}}</td>
@@ -24,10 +24,21 @@
     <button (click) = "displayQuestion(i)">Hide Answer</button>
   </tr>
 </table>
+<form [formGroup] = "cardBuilderForm" (ngSubmit) = "onSubmit()">
+  <label>
+    Search here
+    <input #store type="text"
+    formControlName = "subject" required>
+    <div>
+      <button (click) = "search(store.value)">Search</button>
+    </div>
+  </label>
+</form>
 <table>
   <tr>
-    <th>Search</th>
+    <th>Search Results</th>
   </tr>
   <tr *ngFor="let card of getCards(); let i = index"></tr>
-  <td></td>
-</table>
+   <td *ngIf="getSearchBoolean(i)">{{card.subject}}</td> 
+  <<button (click) = "OpenSubject(i)">Open Subject</button> 
+</table> 

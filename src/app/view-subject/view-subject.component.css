@@ -3,7 +3,7 @@ label {
     display: block;
     width: 6em;
     margin: .5em 0;
-    color: limegreen;
+    color: whitesmoke;
     font-weight: bold;
     border-color: black;
   }
@@ -12,12 +12,12 @@ input {
     height: 2em;
     font-size: 1em;
     padding-left: .4em;
-    color: turquoise;
-    background-color: black;
+    color: black;
+    background-color:white  ;
     
   }
   ::placeholder {
-      color: turquoise;
+      color: grey;
   }
   
 button {
@@ -27,29 +27,31 @@ button {
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
-    color: limegreen;
+    color: whitesmoke;
   }
 button:hover {
-    background-color: lime;
+    background-color:lightblue;
   }
   h1 {
-    color:turquoise;
+    color:black;
 }
 table {
-    color: turquoise;
-    background-color: black;
-    border: limegreen;
+    color: black;
+    background-color: whitesmoke;
+    /* border: black;
     border-style: solid;
-    border-radius: 1em;
+    border-radius: 1em; */
     
-}
-td {
-   border-radius: 1em;
-   border-style: solid;
-   border-color: turquoise;
 }
 h2 {
     color: red;
     border-bottom: solid;
     border-color: black;
+}
+td {
+   border-radius: 1em;
+   border-style: solid;
+   border-color: black;
+   padding-right: 2rem;
+   padding-left: 2rem;
 }
