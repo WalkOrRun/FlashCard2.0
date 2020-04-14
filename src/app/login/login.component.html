@@ -9,9 +9,11 @@
             <input type="password" class="form-control" [(ngModel)]="password"  placeholder="Password">
         </div>
         <div>
-          <button>Login</button>
+          <button (click)="login()">Login</button>
           <button>Sign in</button>
         </div>
-        
+        <div class="alert alert-light" role="alert">
+            {{message}}
+        </div>
     </form>
 </div>
