@@ -44,8 +44,8 @@ export class ViewSubjectComponent implements OnInit {
   isVisable(index : number) {
     return this.tempCard[index].marked;
   }
-  notVisable() {
-    
+  notVisable(index : number) {
+    return this.tempCard[index].marked !== true;
   }
   search(subject : string) {
       this.subjectString = subject;

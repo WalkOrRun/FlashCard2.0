@@ -20,7 +20,7 @@
     <td>{{i + 1}}</td>
     <td>{{card.question}}</td>
     <td *ngIf="isVisable(i)"> {{card.answer}} </td>
-    <button (click) = "displayAnswer(i)"> Display Answer</button>
+    <button *ngIf = "notVisable(i)" (click) = "displayAnswer(i)"> Display Answer</button>
     <button *ngIf="isVisable(i)" (click) = "displayQuestion(i)">Hide Answer</button>
   </tr>
 </table>
