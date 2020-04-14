@@ -22,6 +22,9 @@ export class AppComponent  {
   toggleEditor(type: QuizPage) {
     this.quiz = type;
   }
+  /* Code taken from https://itnext.io/angular-code-design-for-responsive-websites-acd4259a478c
+    Allows my web page to auto initialize on mobile and on the website
+    used thier code to make sure it worked on mobile*/
     private isMobile = new Subject();
     public screenWidth: string;
 
@@ -50,5 +53,6 @@ export class AppComponent  {
             this.screenWidth = 'lg';
             this.onMobileChange(false);
         }
-    }  
+    } 
+    /* End of code fragment that helps us auto intialize the web page */ 
 }
