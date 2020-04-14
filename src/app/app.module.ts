@@ -9,13 +9,13 @@ import { CreateSetComponent } from './create-set/create-set.component';
 import { SetService } from './set.service';
 import { CardService } from './card.service';
 import { AccountService } from './account.service';
-import { HomeComponent } from './home/home.component';
 import { ViewSubjectComponent } from './view-subject/view-subject.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
+import {SingleCardComponent} from './single-card/single-card.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule ],
-  declarations: [ AppComponent, HelloComponent, LoginComponent, CreateSetComponent, HomeComponent, ViewSubjectComponent, CreateAccountComponent ],
+  declarations: [ AppComponent, HelloComponent, LoginComponent, CreateSetComponent, ViewSubjectComponent, CreateAccountComponent, SingleCardComponent ],
   bootstrap:    [ AppComponent ],
   providers: [SetService, CardService, AccountService]
 })
