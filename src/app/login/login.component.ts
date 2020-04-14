@@ -13,11 +13,16 @@ export class LoginComponent implements OnInit {
 
   name:string;
   password:string;
+  accounts: Account[]=[];
   constructor(private accService: AccountService) { }
   
   ngOnInit() {
   }
-
+  fetchData(){
+    this.accService.getAccounts().subscribe(data => {
+      this.accounts = data;
+    });
+  }
 
   
 }

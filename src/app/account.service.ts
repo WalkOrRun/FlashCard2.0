@@ -12,7 +12,7 @@ export class AccountService {
   createAccount(newAcc: Account){
     return this.http.post('https://flashcarddata-ad85d.firebaseio.com/'+'account.json',newAcc);
   }
-  getAccount(){
+  getAccounts(){
     return this.http.get<Account[]>('https://flashcarddata-ad85d.firebaseio.com/'+ 'account.json')
     .pipe(map(responseData => {
       console.log(responseData);
