@@ -45,7 +45,7 @@ h2 {
     border-bottom: solid;
     border-color: black;
 }
-td {
+ td {
    border-radius: 1em;
    border-style: solid;
    border-color: black;
@@ -58,6 +58,4 @@ td {
    border-color: black;
    padding-right: .5rem;
    padding-left: .5rem;
-   
-   
-}
+} 
