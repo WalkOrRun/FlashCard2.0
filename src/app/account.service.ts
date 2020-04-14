@@ -1,8 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Account } from './Account';
-@Injectable()
+import {HttpClient} from '@angular/common/http';
+@Injectable({
+  providedIn: 'root'
+})
 export class AccountService {
 
-  constructor() { }
-
+  constructor(private http: HttpClient) { }
+  
+  createAccount(newAcc: Account){
+    return this.http.post('https://flashcarddata-ad85d.firebaseio.com/'+'account.json',newAcc);
+  }
 }
