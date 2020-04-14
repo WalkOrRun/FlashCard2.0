@@ -34,6 +34,9 @@ export class CreateSetComponent implements OnInit {
     cardID : 1,
     setID : 1
   }
+  storeNum : number;
+  editBoolean : boolean = true;
+  addBoolean : boolean = false;
 
 
   addCard(question : string, answer : string) {
@@ -55,15 +58,15 @@ export class CreateSetComponent implements OnInit {
     this.cardService.addCreatedCardSet(this.newCardSet);
     this.tempCard = []; 
   }
-  RemoveCard(index : number, question: string, answer: string) {
-    this.cardStore = {
-      question : question,
-      answer : answer,
-          marked : false,
-    cardID : 1,
-    setID : 1
-    }
+  RemoveCard(index : number) {
     this.tempCard.splice(index, 1);
+  }
+  editCard(index : number, question: string, answer: string) {
+        this.cardStore = this.tempCard[index];
+        this.storeNum = index;
+        this.editBoolean = false;
+        this.addBoolean = true;
+
   }
   getCardsMade() {
     return this.tempCard;
@@ -82,7 +85,26 @@ export class CreateSetComponent implements OnInit {
   removeCardSet(index : number){
     this.cardService.removeCardSet(index);
   }
+  submitEdit(question : string, answer : string) {
+    this.cardStore = {
+    question : question,
+    answer : answer,
+    marked : false,
+    cardID : 1,
+    setID : 1
+    }
+    this.tempCard[this.storeNum] = this.cardStore;
+    this.editBoolean = true;
+    this.storeNum = 0;
+    this.addBoolean = false;
 
+  }
+  isTrue() {
+    return this.editBoolean;
+  }
+  isEdit() {
+    return this.addBoolean;
+  }
   ngOnInit() {
   }
   

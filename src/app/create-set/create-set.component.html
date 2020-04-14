@@ -9,7 +9,8 @@
   <td>{{i + 1}}</td>
   <td>{{card.question}}</td>
   <td>{{card.answer}}</td>
-  <button (click) = "RemoveCard(i, card.question, card.answer)">Remove/Edit</button>
+  <button (click) = "RemoveCard(i)">Remove</button>
+  <button (click) = "editCard(i, card.question, card.answer)">Edit</button>
 </tr>
  
 </table> 
@@ -27,7 +28,8 @@
     formControlName = "answer" required>
   </label>
   <div>
-    <button (click) = "addCard(question.value, answer.value)">Submit Card</button>
+    <button *ngIf="isTrue()" (click) = "addCard(question.value, answer.value)">Submit Card</button>
+    <button *ngIf = "isEdit()" (click) = "submitEdit(question.value, answer.value)">Save Edit</button>
   </div>
  </form>
 <form [formGroup] = "subjectForm" (ngSubmt) = "onSubmit2()">
@@ -39,7 +41,7 @@
     >
   </label>
   <div>
-    <button (click) = "addNewCard(subject.value)" >Submit new Quiz</button>
+    <button  (click) = "addNewCard(subject.value)" >Submit new Quiz</button>
   </div>
 </form>
 <table>
