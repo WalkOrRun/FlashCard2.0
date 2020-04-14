@@ -41,4 +41,7 @@ getCardSet(index : number) {
 removeCardSet(index : number) {
   this.cardsets.splice(index,1);
 }
+search(index : number, subject : string) {
+      return subject === this.cardsets[index].subject;
+}
 }

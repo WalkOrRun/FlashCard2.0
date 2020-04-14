@@ -24,8 +24,8 @@ export class ViewSubjectComponent implements OnInit {
     setID : 1,
     accountID : 1
   };
-  searchBoolean : boolean = false;
   subjectString : string;
+  
   getCards() {
     return this.cardService.getMyCreatedSets();
   }
@@ -44,11 +44,14 @@ export class ViewSubjectComponent implements OnInit {
   isVisable(index : number) {
     return this.tempCard[index].marked;
   }
+  notVisable() {
+    
+  }
   search(subject : string) {
       this.subjectString = subject;
   }
   getSearchBoolean(index: number) {
-    return this.subjectString === this.cardService.getCardSet[index].subject;
+    return this.cardService.search(index, this.subjectString);
   }
   onSubmit() {
     console.warn(this.cardBuilderForm.value);
