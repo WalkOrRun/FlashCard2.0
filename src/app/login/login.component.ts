@@ -26,6 +26,8 @@ export class LoginComponent implements OnInit {
     });
   }
   login(){
+    console.log(this.name);
+    console.log(this.password);
     for(let i =0; i<this.accounts.length;i++){
       if((this.name==this.accounts[i].name)&&(this.password==this.accounts[i].password)){
         this.message='login successed, hello'+this.name;
