@@ -10,6 +10,8 @@ export type QuizPage = 'create' | 'home' | 'list';
 })
 export class AppComponent  {
   quiz : QuizPage = 'home';
+  userLoggedin = document.cookie;
+
   get showCreate() {
     return this.quiz === 'create';
   }
@@ -19,6 +21,7 @@ export class AppComponent  {
   get showList() {
     return this.quiz === 'list';
   }
+
   toggleEditor(type: QuizPage) {
     this.quiz = type;
   }
