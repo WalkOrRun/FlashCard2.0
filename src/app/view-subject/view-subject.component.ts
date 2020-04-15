@@ -55,6 +55,7 @@ export class ViewSubjectComponent implements OnInit {
   }
   onSubmit() {
     console.warn(this.cardBuilderForm.value);
+    this.cardBuilderForm.reset();
   }
   ngOnInit() {
   }

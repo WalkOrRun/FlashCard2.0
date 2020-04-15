@@ -41,6 +41,7 @@ export class CreateSetComponent implements OnInit {
 
   addCard(question : string, answer : string) {
     this.tempCard.push({question, answer}as Card);
+    this.cardBuilderForm.reset();
   }
   getCreatedCards() {
     return this.cardService.getMyCreatedSets();
@@ -57,6 +58,7 @@ export class CreateSetComponent implements OnInit {
     }
     this.cardService.addCreatedCardSet(this.newCardSet);
     this.tempCard = []; 
+    this.subjectForm.reset();
   }
   RemoveCard(index : number) {
     this.tempCard.splice(index, 1);
@@ -65,17 +67,17 @@ export class CreateSetComponent implements OnInit {
         this.cardStore = this.tempCard[index];
         this.storeNum = index;
         this.editBoolean = false;
-        this.addBoolean = true;
+        this.addBoolean = true;       
 
   }
   getCardsMade() {
     return this.tempCard;
   }
   onSubmit() {
-    console.warn(this.cardBuilderForm.value);
+    console.warn(this.cardBuilderForm.value);    
   }
   onSubmit2() {
-    console.warn(this.subjectForm.value);
+    console.warn(this.subjectForm.value);    
   }
   openSet(index : number) {
     this.newCardSet = this.cardService.getCardSet(index);
@@ -97,7 +99,6 @@ export class CreateSetComponent implements OnInit {
     this.editBoolean = true;
     this.storeNum = 0;
     this.addBoolean = false;
-
   }
   isTrue() {
     return this.editBoolean;

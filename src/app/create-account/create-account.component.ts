@@ -22,6 +22,8 @@ export class CreateAccountComponent implements OnInit {
   addNewAccount(){
     if(this.password!=this.repassword){
       this.message='password and Retyped password have to be the same';
+      this.password = '';
+      this.repassword = '';
       return;
     }
     const newAcc={
@@ -30,6 +32,11 @@ export class CreateAccountComponent implements OnInit {
     }
     this.accService.createAccount(newAcc).subscribe(data => {
       console.log(data);
+      this.name='';
+      this.password='';
+      this.repassword='';
+      this.message='New Account Successfully Created!';
+      
     });
   }
 }

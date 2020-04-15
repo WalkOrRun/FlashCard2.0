@@ -30,10 +30,12 @@ export class LoginComponent implements OnInit {
     console.log(this.password);
     for(let i =0; i<this.accounts.length;i++){
       if((this.name==this.accounts[i].name)&&(this.password==this.accounts[i].password)){
-        this.message='login successed, hello'+this.name;
+        document.cookie = "username=" + this.name + ";";
+        this.message='login successful, hello '+this.name;
+        this.name = '';
+        this.password ='';
         return;
       }
-      
         this.message='wrong username or password';
       
     }

@@ -48,6 +48,6 @@
   </tr>
   <tr *ngFor="let cards of getCards(); let i = index">
    <td *ngIf="getSearchBoolean(i)">{{cards.subject}}</td>
-  <<button *ngIf="getSearchBoolean(i)" (click) = "OpenSubject(i)">Open Subject</button> 
+  <button *ngIf="getSearchBoolean(i)" (click) = "OpenSubject(i)">Open Subject</button> 
   </tr>
 </table> 
